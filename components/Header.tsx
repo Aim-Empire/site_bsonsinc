@@ -30,7 +30,6 @@ function ThreeVerticalBars({ className="" }:{className?:string}) {
 export default function Header(){
   const [open, setOpen] = useState(false);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
@@ -40,9 +39,11 @@ export default function Header(){
   return (
     <header className="bg-brand-navy text-white">
       <div className="container-default h-16 grid grid-cols-3 items-center">
-        {/* Left: Logo */}
+        {/* Left: Logo in white badge */}
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.png" className="w-9 h-9 rounded-full border border-white/20" alt="logo"/>
+          <span className="w-9 h-9 rounded-full bg-white border border-white/30 grid place-items-center">
+            <img src="/logo.png" className="w-7 h-7 object-contain" alt="logo"/>
+          </span>
         </Link>
 
         {/* Center: Title */}
@@ -65,20 +66,11 @@ export default function Header(){
       {/* Overlay + Drawer */}
       {open && (
         <div className="fixed inset-0 z-50">
-          <div
-            className="absolute inset-0 bg-black/60"
-            onClick={() => setOpen(false)}
-          />
+          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
           <aside className="absolute right-0 top-0 h-full w-[78%] max-w-xs bg-[#0B2649] text-white shadow-xl p-4">
             <div className="flex items-center justify-between">
               <span className="font-display text-lg">Menu</span>
-              <button
-                aria-label="Close menu"
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-2 py-1 bg-white/10 hover:bg-white/20"
-              >
-                ✕
-              </button>
+              <button aria-label="Close menu" onClick={() => setOpen(false)} className="rounded-xl px-2 py-1 bg-white/10 hover:bg-white/20">✕</button>
             </div>
             <nav className="mt-3">
               {nav.map((i) => (
