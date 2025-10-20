@@ -1,11 +1,11 @@
 export const metadata = {
   title: "Investment | Bsons Inc.",
   description:
-    "Simple, safe investing for families and small businesses: types of investments, benefits, risk basics, and crypto literacy—clear steps and zero hype.",
+    "Simple, safe investing for families and small businesses: types, benefits, risk basics, fraud red flags, and crypto literacy—with official SEC tools.",
   openGraph: {
     title: "Investment | Bsons Inc.",
     description:
-      "Simple, safe investing for families & small businesses. Learn the types, benefits, risk basics, and crypto literacy.",
+      "Learn the types, benefits, risk basics, fraud red flags, and crypto literacy—plus official SEC calculators.",
     images: ["/invest.jpg"],
   },
 };
@@ -41,7 +41,7 @@ export default function Page() {
 
         <div className="order-first md:order-none">
           <img
-            src="/invest.jpg?v=3"
+            src="/invest.jpg?v=4"
             alt="Investing basics"
             className="rounded-2xl border w-full h-64 md:h-full object-cover"
           />
@@ -75,8 +75,8 @@ export default function Page() {
           <div className="card">
             <h3 className="font-semibold">Crypto Literacy</h3>
             <p className="mt-1 text-sm text-neutral-700">
-              Digital assets are legitimate—but often abused by scammers. We
-              teach wallets, custody, risk sizing, and red flags.
+              Digital assets are legitimate but volatile; learn wallets,
+              custody, risk sizing, and red flags before participating.
             </p>
           </div>
         </div>
@@ -97,29 +97,103 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SAFETY */}
+      {/* SAFETY + SEC FRAUD RED FLAGS */}
       <section className="container-default pb-10 md:pb-14">
         <h2 className="font-display text-2xl md:text-3xl text-brand-navy">
-          Safety first
+          Safety first (from official guidance)
         </h2>
         <div className="mt-4 grid md:grid-cols-2 gap-4">
           <div className="card">
-            <h3 className="font-semibold">Risk Basics</h3>
+            <h3 className="font-semibold">Fraud red flags</h3>
             <ul className="mt-2 list-disc ml-5 text-sm text-neutral-700">
-              <li>Only invest money you won’t need very soon.</li>
-              <li>Longer time horizons can handle more ups &amp; downs.</li>
-              <li>Diversify—don’t bet it all on one idea.</li>
+              <li>Promises of high returns with little or no risk</li>
+              <li>Pressure to act now / FOMO tactics</li>
+              <li>“Guaranteed” profits or fake testimonials</li>
+              <li>Odd payment methods (gift cards, wires to personal accts)</li>
+              <li>Unsolicited DMs, social media pitches</li>
             </ul>
+            <a
+              className="mt-3 inline-block btn-outline"
+              href="https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/red-flags-investment-fraud-checklist"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See SEC Red Flags Checklist
+            </a>
           </div>
+
           <div className="card">
-            <h3 className="font-semibold">Crypto Caution</h3>
+            <h3 className="font-semibold">Crypto caution</h3>
             <ul className="mt-2 list-disc ml-5 text-sm text-neutral-700">
-              <li>Use reputable exchanges &amp; learn self-custody basics.</li>
-              <li>Beware “guaranteed returns” and unsolicited offers.</li>
-              <li>Start small; size risk relative to your total plan.</li>
+              <li>Assets can be exceptionally volatile and speculative</li>
+              <li>Platforms may lack investor protections—research first</li>
+              <li>Start small; learn custody and wallet basics</li>
             </ul>
+            <div className="mt-3 flex gap-3 flex-wrap">
+              <a
+                className="btn-outline"
+                href="https://www.investor.gov/additional-resources/spotlight/crypto-assets"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SEC Crypto Assets Overview
+              </a>
+              <a
+                className="btn-outline"
+                href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/crypto-asset-securities"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Investor Alert: Crypto Asset Securities
+              </a>
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* TOOLS & CALCULATORS (SEC/FINRA) */}
+      <section className="container-default pb-12 md:pb-16">
+        <h2 className="font-display text-2xl md:text-3xl text-brand-navy">
+          Trusted tools to plan your money
+        </h2>
+        <div className="mt-6 grid md:grid-cols-3 gap-4">
+          <a
+            className="card hover:shadow-md transition block"
+            href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3 className="font-semibold">Compound Interest Calculator</h3>
+            <p className="mt-1 text-sm text-neutral-700">
+              See how your money can grow through the power of compounding.
+            </p>
+          </a>
+          <a
+            className="card hover:shadow-md transition block"
+            href="https://www.investor.gov/financial-tools-calculators/calculators/savings-goal-calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3 className="font-semibold">Savings Goal Calculator</h3>
+            <p className="mt-1 text-sm text-neutral-700">
+              Map a monthly habit to reach your target on time.
+            </p>
+          </a>
+          <a
+            className="card hover:shadow-md transition block"
+            href="https://www.investor.gov/financial-tools-calculators/financial-tools/mutual-fund-analyzer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3 className="font-semibold">FINRA Fund Analyzer</h3>
+            <p className="mt-1 text-sm text-neutral-700">
+              Compare fund fees and see how costs impact long-term results.
+            </p>
+          </a>
+        </div>
+        <p className="mt-3 text-xs text-neutral-500">
+          External tools open on official sites (SEC / FINRA).
+        </p>
       </section>
 
       {/* HOW IT WORKS */}
@@ -141,7 +215,7 @@ export default function Page() {
             </p>
           </li>
           <li className="card">
-            <h3 className="font-semibold">3) On-going support</h3>
+            <h3 className="font-semibold">3) Ongoing support</h3>
             <p className="mt-1 text-neutral-700">
               Check-ins, resources, and community Q&amp;A.
             </p>
@@ -155,29 +229,6 @@ export default function Page() {
           <a className="btn-outline" href="/contact">
             Ask a Question
           </a>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="container-default pb-14">
-        <h2 className="font-display text-2xl md:text-3xl text-brand-navy">
-          Quick FAQ
-        </h2>
-        <div className="mt-4 grid md:grid-cols-2 gap-4">
-          <div className="card">
-            <h3 className="font-semibold">Minimum to begin?</h3>
-            <p className="mt-1 text-sm text-neutral-700">
-              Start with what’s comfortable. Even $25–$50/month builds the
-              habit while you learn.
-            </p>
-          </div>
-          <div className="card">
-            <h3 className="font-semibold">Can I pause?</h3>
-            <p className="mt-1 text-sm text-neutral-700">
-              Yes. You’re in control—pause, resume, or adjust your plan any
-              time.
-            </p>
-          </div>
         </div>
       </section>
     </main>
