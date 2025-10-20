@@ -16,7 +16,7 @@ export default function Page() {
           </h1>
           <p className="mt-3 text-neutral-700">
             We help <strong>individuals, couples, families, and small businesses</strong> build steady habits:
-            save while investing, understand the options, and pick a path that matches your goals.
+            save while investing, understand options, and pick a path that matches your goals.
             No hype—just clear steps and practical tools you can act on today.
           </p>
           <p className="mt-3 text-neutral-700">
@@ -34,7 +34,7 @@ export default function Page() {
 
         <div className="order-first md:order-none">
           <img
-            src="/invest.jpg?v=5"
+            src="/invest.jpg?v=6"
             alt="Investing basics"
             className="rounded-2xl border w-full h-64 md:h-full object-cover"
           />
@@ -49,9 +49,19 @@ export default function Page() {
           <div className="card"><h3 className="font-semibold">Bonds &amp; GICs</h3><p className="mt-1 text-sm text-neutral-700">Income + stability; balances stock risk.</p></div>
           <div className="card"><h3 className="font-semibold">Stocks</h3><p className="mt-1 text-sm text-neutral-700">Higher potential returns with higher risk.</p></div>
           <div className="card"><h3 className="font-semibold">Crypto Literacy</h3><p className="mt-1 text-sm text-neutral-700">Legit asset class, but volatile—learn wallets, custody, and red flags.</p></div>
-        </div>
-        <div className="mt-6">
-          <a className="btn-outline" href="/resources/investment-guide">Open the full Investment Guide</a>
+
+          {/* Partnerships CTA */}
+          <div className="mt-8 card bg-[var(--brand-cream)] col-span-full">
+            <h3 className="font-display text-2xl text-brand-navy">Partnership Investments</h3>
+            <p className="mt-2 text-neutral-700">
+              Explore Private Projects, Cloud Mining/JV, or the long-term Bsons Utility Token (BST).
+              Documentation: MOU, KYC, ROI schedule, and proof-of-funds utilization.
+            </p>
+            <div className="mt-4 flex gap-3">
+              <a className="btn" href="/programs/investment/partnerships">See Options</a>
+              <a className="btn-outline" href="/auth">Register Interest</a>
+            </div>
+          </div>
         </div>
       </section>
 
