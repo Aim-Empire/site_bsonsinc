@@ -10,10 +10,10 @@ export default function FeatureCard({
   children?: React.ReactNode;
 }) {
   return (
-    <Link href={href as any} className="card hover:shadow-md transition block">
+    <div className="card">
       <h3 className="font-display text-xl text-brand-navy">{title}</h3>
-      {children && <div className="mt-2 text-sm text-neutral-600">{children}</div>}
-      <div className="mt-3 text-sm text-brand-blue">Learn more →</div>
-    </Link>
+      {children && <div className="mt-2 text-sm text-neutral-700">{children}</div>}
+      <Link href={href as any} className="mt-4 inline-flex btn">Learn more</Link>
+    </div>
   );
 }
