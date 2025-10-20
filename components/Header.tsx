@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import clsx from "clsx";
+import { useState } from "react";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -13,72 +10,64 @@ const nav = [
   { href: "/apply", label: "Apply" },
   { href: "/careers", label: "Careers" },
   { href: "/donation", label: "Donation" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/about", label: "About" }, // About last
+  { href: "/about", label: "About" } // About last, per your request
 ];
 
-function ThreeVerticalBars({ className="" }:{className?:string}) {
-  return (
-    <svg viewBox="0 0 24 24" className={clsx("w-6 h-6", className)} fill="currentColor" aria-hidden="true">
-      <rect x="10.5" y="3" width="3" height="4" rx="1"></rect>
-      <rect x="10.5" y="10" width="3" height="4" rx="1"></rect>
-      <rect x="10.5" y="17" width="3" height="4" rx="1"></rect>
-    </svg>
-  );
-}
-
-export default function Header(){
+export default function Header() {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    if (open) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
-    return () => { document.body.style.overflow = ""; };
-  }, [open]);
-
   return (
-    <header className="bg-brand-navy text-white">
-      <div className="container-default h-16 grid grid-cols-3 items-center">
-        {/* Left: Logo in white badge */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="w-9 h-9 rounded-full bg-white border border-white/30 grid place-items-center">
-            <img src="/logo.png" className="w-7 h-7 object-contain" alt="logo"/>
-          </span>
-        </Link>
+    <>
+      <header className="z-40 bg-[#0B1E34] text-white">
+        <div className="container-default h-14 flex items-center justify-between">
+          {/* Left: logo (white badge on dark) */}
+          <Link href="/" className="flex items-center gap-2">
+            <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden">
+              <img src="/logo.png" className="w-7 h-7 object-contain" alt="Bsons Inc logo" />
+            </span>
+          </Link>
 
-        {/* Center: Title */}
-        <div className="justify-self-center">
-          <Link href="/" className="font-display text-xl">Bsons Inc.</Link>
-        </div>
+          {/* Center: short brand name */}
+          <div className="font-display text-lg tracking-wide">Bsons Inc.</div>
 
-        {/* Right: Menu button */}
-        <div className="justify-self-end">
+          {/* Right: hamburger */}
           <button
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className="rounded-xl p-2 bg-white/10 hover:bg-white/20"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10"
           >
-            <ThreeVerticalBars />
+            {/* three vertical lines icon */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 4v16M7 4v16M17 4v16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
           </button>
         </div>
-      </div>
+      </header>
 
-      {/* Overlay + Drawer */}
+      {/* Dark slideout */}
       {open && (
         <div className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
-          <aside className="absolute right-0 top-0 h-full w-[78%] max-w-xs bg-[#0B2649] text-white shadow-xl p-4">
+          <aside className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-[#0B1E34] text-white shadow-xl p-5 overflow-y-auto">
             <div className="flex items-center justify-between">
-              <span className="font-display text-lg">Menu</span>
-              <button aria-label="Close menu" onClick={() => setOpen(false)} className="rounded-xl px-2 py-1 bg-white/10 hover:bg-white/20">✕</button>
+              <div className="flex items-center gap-2">
+                <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden">
+                  <img src="/logo.png" className="w-7 h-7 object-contain" alt="Bsons Inc logo" />
+                </span>
+                <span className="font-semibold">Menu</span>
+              </div>
+              <button onClick={() => setOpen(false)} className="w-10 h-10 grid place-items-center rounded-lg hover:bg-white/10">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+              </button>
             </div>
-            <nav className="mt-3">
+
+            <nav className="mt-4 grid gap-2">
               {nav.map((i) => (
                 <Link
                   key={i.href}
                   href={i.href as any}
+                  className="w-full text-left rounded-xl px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10"
                   onClick={() => setOpen(false)}
-                  className="block w-full rounded-lg px-3 py-3 text-[15px] hover:bg-white/10"
                 >
                   {i.label}
                 </Link>
@@ -87,6 +76,6 @@ export default function Header(){
           </aside>
         </div>
       )}
-    </header>
+    </>
   );
 }
