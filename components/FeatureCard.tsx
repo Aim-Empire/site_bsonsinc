@@ -6,14 +6,11 @@ export default function FeatureCard({
   children
 }: {
   title: string;
-  href: string;                 // we pass strings in our app
+  href: string;
   children?: React.ReactNode;
 }) {
   return (
-    <Link
-      href={href as any}        // satisfy Next 13 typedRoutes on build
-      className="card hover:shadow-md transition block"
-    >
+    <Link href={href as any} className="card hover:shadow-md transition block">
       <h3 className="font-display text-xl text-brand-navy">{title}</h3>
       {children && (
         <div className="mt-2 text-sm text-neutral-600">{children}</div>
