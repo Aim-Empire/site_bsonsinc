@@ -10,7 +10,6 @@ export default function Page(){
           we brought Community Support online. Funding comes from donations, the founder’s Metrolinx pension,
           and the Bourgeois Family Generational Account (decades old) when needs are larger.
         </p>
-        <img src="/about.jpg?v=3" alt="About" className="mt-6 rounded-2xl border w-full max-h-[380px] object-cover"/>
       </section>
     </main>
   );
