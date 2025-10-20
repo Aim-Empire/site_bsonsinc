@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
+/** Two-row menu content */
 const ROW1 = [
   { href: "/", label: "Home" },
   { href: "/programs", label: "Programs" },
@@ -16,19 +17,37 @@ const ROW2 = [
   { href: "/resources", label: "Resources" },
   { href: "/donation", label: "Donation" },
   { href: "/about", label: "About" },
-  // Team Admin ALWAYS last in row2, single instance
-  { href: "/admin/login", label: "Team Admin", emphasis: true },
+  { href: "/admin/login", label: "Team Admin", emphasis: true }, // single, yellow
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const menuBtn =
-    "rounded-lg px-3 py-2 bg-white/5 hover:bg-white/10 text-sm border border-white/10 shadow-sm transition active:scale-[.98]";
+
+  /** Fancy pill button (gradient + soft glow + swipe highlight) */
+  const fancy =
+    "group relative overflow-hidden rounded-xl px-3 py-2 text-sm border shadow-sm " +
+    "border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-white/0 " + // gentle glassy gradient
+    "hover:from-white/20 hover:via-white/10 hover:to-white/5 " +
+    "transition duration-300 will-change-transform active:scale-[.98] " +
+    "before:absolute before:inset-0 before:rounded-[inherit] before:ring-1 before:ring-white/10 " +
+    "after:content-[''] after:absolute after:top-0 after:-left-1/3 after:h-full after:w-1/3 " +
+    "after:bg-white/30 after:opacity-0 after:rotate-12 after:blur-sm " +
+    "group-hover:after:translate-x-[260%] group-hover:after:opacity-60 after:transition-all after:duration-500";
+
+  /** Emphasis (Team Admin): gold gradient + dark text + glow */
+  const fancyGold =
+    "group relative overflow-hidden rounded-xl px-3 py-2 text-sm font-semibold text-[#0B1E34] " +
+    "bg-gradient-to-br from-yellow-300 via-amber-300 to-yellow-400 shadow " +
+    "hover:brightness-95 active:scale-[.98] " +
+    "before:absolute before:inset-0 before:rounded-[inherit] before:ring-1 before:ring-amber-400/50 " +
+    "after:content-[''] after:absolute after:top-0 after:-left-1/3 after:h-full after:w-1/3 " +
+    "after:bg-white/60 after:opacity-0 after:rotate-12 after:blur-sm " +
+    "group-hover:after:translate-x-[260%] group-hover:after:opacity-80 after:transition-all after:duration-500";
 
   return (
     <header className="sticky top-0 z-40 bg-[#0B1E34] text-white">
       <div className="container-default h-14 flex items-center justify-between">
-        {/* Logo + brand (tap opens menu) */}
+        {/* Logo/brand toggles the menu */}
         <button
           onClick={() => setOpen((v) => !v)}
           className="flex items-center gap-2"
@@ -48,48 +67,45 @@ export default function Header() {
             <span className="block w-3.5 h-0.5 bg-white rounded"></span>
           </span>
         </button>
-
-        {/* dark dropdown under header */}
-        {open && (
-          <div
-            id="site-menu"
-            className="absolute left-0 right-0 top-14 bg-[#0B1E34]/98 backdrop-blur border-t border-white/10"
-          >
-            <nav className="container-default">
-              {/* Row 1 */}
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 p-4 text-center">
-                {ROW1.map((i) => (
-                  <Link
-                    key={i.href}
-                    href={i.href as any}
-                    className={menuBtn}
-                    onClick={() => setOpen(false)}
-                  >
-                    {i.label}
-                  </Link>
-                ))}
-              </div>
-              {/* Row 2 */}
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 p-4 text-center border-t border-white/10">
-                {ROW2.map((i) => (
-                  <Link
-                    key={i.href}
-                    href={i.href as any}
-                    onClick={() => setOpen(false)}
-                    className={
-                      i.emphasis
-                        ? "rounded-lg px-3 py-2 bg-yellow-400 text-[#0B1E34] font-semibold text-sm shadow hover:brightness-95"
-                        : menuBtn
-                    }
-                  >
-                    {i.label}
-                  </Link>
-                ))}
-              </div>
-            </nav>
-          </div>
-        )}
       </div>
+
+      {/* Dropdown */}
+      {open && (
+        <div
+          id="site-menu"
+          className="bg-[#0B1E34]/98 backdrop-blur border-t border-white/10"
+        >
+          <nav className="container-default">
+            {/* Row 1 */}
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 p-4 text-center">
+              {ROW1.map((i) => (
+                <Link
+                  key={i.href}
+                  href={i.href as any}
+                  onClick={() => setOpen(false)}
+                  className={fancy}
+                >
+                  {i.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Row 2 */}
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 p-4 text-center border-t border-white/10">
+              {ROW2.map((i) => (
+                <Link
+                  key={i.href}
+                  href={i.href as any}
+                  onClick={() => setOpen(false)}
+                  className={i.emphasis ? fancyGold : fancy}
+                >
+                  {i.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
