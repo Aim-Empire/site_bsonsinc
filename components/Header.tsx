@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useState } from "react";
 
@@ -65,7 +67,7 @@ export default function Header() {
                 <Link
                   key={i.href}
                   href={i.href as any}
-                  className="w-full text-left rounded-xl px-4 py-3 bg-white/5 hover:bg白/10 border border-white/10"
+                  className="w-full text-left rounded-xl px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10"
                   onClick={() => setOpen(false)}
                 >
                   {i.label}
