@@ -10,7 +10,7 @@ const nav = [
   { href: "/apply", label: "Apply" },
   { href: "/careers", label: "Careers" },
   { href: "/donation", label: "Donation" },
-  { href: "/about", label: "About" } // About last, per your request
+  { href: "/about", label: "About" } // About last
 ];
 
 export default function Header() {
@@ -20,23 +20,22 @@ export default function Header() {
     <>
       <header className="z-40 bg-[#0B1E34] text-white">
         <div className="container-default h-14 flex items-center justify-between">
-          {/* Left: logo (white badge on dark) */}
+          {/* Left: logo on white badge */}
           <Link href="/" className="flex items-center gap-2">
             <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden">
               <img src="/logo.png" className="w-7 h-7 object-contain" alt="Bsons Inc logo" />
             </span>
           </Link>
 
-          {/* Center: short brand name */}
+          {/* Center: brand (short) */}
           <div className="font-display text-lg tracking-wide">Bsons Inc.</div>
 
-          {/* Right: hamburger */}
+          {/* Right: hamburger (three vertical lines) */}
           <button
             aria-label="Open menu"
             onClick={() => setOpen(true)}
             className="inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10"
           >
-            {/* three vertical lines icon */}
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 4v16M7 4v16M17 4v16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
@@ -44,7 +43,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Dark slideout */}
+      {/* Dark slideout menu */}
       {open && (
         <div className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
@@ -66,7 +65,7 @@ export default function Header() {
                 <Link
                   key={i.href}
                   href={i.href as any}
-                  className="w-full text-left rounded-xl px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10"
+                  className="w-full text-left rounded-xl px-4 py-3 bg-white/5 hover:bg白/10 border border-white/10"
                   onClick={() => setOpen(false)}
                 >
                   {i.label}

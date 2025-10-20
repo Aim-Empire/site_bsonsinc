@@ -5,7 +5,6 @@ import CTA from "@/components/CTA";
 export default function Page() {
   return (
     <>
-      {/* HERO (bold + image, collapses to single column on mobile) */}
       <section className="relative">
         <div className="absolute inset-0 -z-10">
           <img src="/hero.jpg" className="w-full h-full object-cover opacity-90" alt="Bsons Inc hero"/>
@@ -47,7 +46,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SKIMMABLE GRID */}
       <section className="container-default py-12">
         <div className="grid md:grid-cols-3 gap-6">
           <FeatureCard title="Community Support" href="/programs/community-support">
@@ -71,7 +69,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* AUTOS SPOTLIGHT (cream background) */}
       <section className="bg-[var(--brand-cream)] border-y">
         <div className="container-default py-12 md:py-16 grid md:grid-cols-2 gap-8">
           <img src="/autos.jpg" className="w-full h-64 md:h-80 object-cover rounded-2xl border" alt="Autos"/>
@@ -89,7 +86,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* INVESTMENT SPOTLIGHT (white bg) */}
       <section>
         <div className="container-default py-12 md:py-16 grid md:grid-cols-2 gap-8">
           <div className="order-2 md:order-1 flex flex-col justify-center">
@@ -108,7 +104,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* FOUNDER TEASER */}
       <section className="container-default py-12">
         <div className="card">
           <h3 className="font-display text-2xl text-brand-navy">Founder’s Note</h3>
@@ -122,7 +117,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* DONATION STRIP */}
       <section className="bg-brand-blue text-white">
         <div className="container-default py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-lg">Your donation expands Community Support across US, Canada, UK &amp; Australia.</p>
@@ -130,7 +124,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <section className="container-default py-12">
         <h2 className="font-display text-3xl text-brand-navy">What people say</h2>
         <div className="mt-6 grid md:grid-cols-3 gap-6">
