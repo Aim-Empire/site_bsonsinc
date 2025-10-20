@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-export const metadata = { title: "Team Admin Login | Bsons Inc." };
-
 export default function Login(){
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("FDO");
@@ -16,7 +14,6 @@ export default function Login(){
 
   const handleLogin = (e:React.FormEvent) => {
     e.preventDefault();
-    // Super-light gating: require a shared code you can rotate via NEXT_PUBLIC_TEAM_CODE or hardcoded.
     const expected = process.env.NEXT_PUBLIC_TEAM_CODE || "BSONS2025";
     if (code.trim() !== expected) {
       alert("Invalid access code.");
