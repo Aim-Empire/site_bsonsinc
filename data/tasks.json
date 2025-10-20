@@ -1,0 +1,26 @@
+[
+  {
+    "id": "t-1001",
+    "title": "Verify 10 beneficiary receipts",
+    "requirements": "Cross-check receipt totals with payout sheet; flag any mismatch.",
+    "pay": 25,
+    "currency": "USD",
+    "status": "available"
+  },
+  {
+    "id": "t-1002",
+    "title": "Weekly payout proof upload",
+    "requirements": "Upload signed payout summary PDF for week 42.",
+    "pay": 30,
+    "currency": "USD",
+    "status": "available"
+  },
+  {
+    "id": "t-0931",
+    "title": "Contact update sweep",
+    "requirements": "Confirm phone/email for 15 active beneficiaries.",
+    "pay": 20,
+    "currency": "USD",
+    "status": "done"
+  }
+]

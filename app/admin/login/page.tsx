@@ -1,53 +1,44 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Login(){
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("FDO");
-  const [roles, setRoles] = useState<{code:string;name:string}[]>([]);
+  const [role, setRole] = useState("Funds Disbursement Officer");
   const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetch("/roles.json").then(r=>r.json()).then(d => setRoles(d.roles || [])).catch(()=>{});
-  }, []);
-
-  const handleLogin = (e:React.FormEvent) => {
+  async function onSubmit(e: any){
     e.preventDefault();
-    const expected = process.env.NEXT_PUBLIC_TEAM_CODE || "BSONS2025";
-    if (code.trim() !== expected) {
-      alert("Invalid access code.");
-      return;
-    }
-    localStorage.setItem("bsons_admin", JSON.stringify({ email, role, ts: Date.now() }));
-    window.location.href = "/admin";
-  };
+    setLoading(true);
+    const res = await fetch("/api/admin/verify-code", {
+      method: "POST",
+      headers: { "content-type":"application/json" },
+      body: JSON.stringify({ email, role, code })
+    });
+    const json = await res.json();
+    setLoading(false);
+    if(!res.ok){ alert(json.error||"Login failed"); return; }
+    localStorage.setItem("adminToken", json.sessionToken);
+    localStorage.setItem("adminEmail", email);
+    localStorage.setItem("adminRole", json.role || role);
+    window.location.href = "/admin/dashboard";
+  }
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="container-default py-10">
-        <h1 className="font-display text-3xl text-brand-navy">Team Admin Login</h1>
-        <form className="mt-6 grid gap-4 max-w-md" onSubmit={handleLogin}>
-          <label className="grid gap-1">
-            <span className="text-sm text-neutral-700">Email</span>
-            <input value={email} onChange={e=>setEmail(e.target.value)} required className="border rounded-xl px-3 py-2" placeholder="you@bsonsinc.com" />
-          </label>
-          <label className="grid gap-1">
-            <span className="text-sm text-neutral-700">Role</span>
-            <select value={role} onChange={e=>setRole(e.target.value)} className="border rounded-xl px-3 py-2">
-              {(roles.length?roles:[{code:"FDO",name:"Funds Disbursement Officer"}]).map(r=>(
-                <option key={r.code} value={r.code}>{r.name}</option>
-              ))}
-            </select>
-          </label>
-          <label className="grid gap-1">
-            <span className="text-sm text-neutral-700">Access Code</span>
-            <input value={code} onChange={e=>setCode(e.target.value)} required className="border rounded-xl px-3 py-2" placeholder="Team code" />
-          </label>
-          <button className="btn" type="submit">Enter Dashboard</button>
-          <Link className="btn-outline" href="/">← Back home</Link>
-        </form>
-      </section>
+    <main className="min-h-screen container-default py-10">
+      <h1 className="font-display text-4xl text-brand-navy">Team Admin Login</h1>
+      <form onSubmit={onSubmit} className="mt-6 max-w-xl space-y-4">
+        <input className="w-full rounded-xl border px-4 py-3" placeholder="you@bsonsinc.com" value={email} onChange={e=>setEmail(e.target.value)} required />
+        <select className="w-full rounded-xl border px-4 py-3" value={role} onChange={e=>setRole(e.target.value)}>
+          <option>Funds Disbursement Officer</option>
+          <option>Operations</option>
+          <option>Community Support</option>
+        </select>
+        <input className="w-full rounded-xl border px-4 py-3" placeholder="Access code" value={code} onChange={e=>setCode(e.target.value)} required />
+        <button className="btn w-full">{loading?"Checking...":"Enter Dashboard"}</button>
+        <Link href="/" className="btn-outline w-full text-center">← Back home</Link>
+      </form>
     </main>
   );
 }
