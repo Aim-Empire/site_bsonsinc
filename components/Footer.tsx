@@ -1,72 +1,62 @@
 import Link from "next/link";
 
-export default function Footer() {
+export default function Footer(){
   return (
-    <footer className="bg-[#0B1E34] text-white mt-16">
+    <footer className="bg-[#0B1E34] text-white mt-10">
       <div className="container-default py-10 grid md:grid-cols-3 gap-8">
-        {/* 1) Newsletter / Social */}
+        {/* Column 1: Newsletter + Social */}
         <div>
-          <h3 className="font-display text-xl">Stay Connected</h3>
-          <p className="mt-2 text-white/80">
-            Join our list for community updates, programs and opportunities.
-          </p>
+          <h3 className="font-display text-xl">Bsons Inc.</h3>
+          <p className="mt-2 text-white/80">Join our list for community updates, programs and opportunities.</p>
           <div className="mt-4 flex gap-2">
-            <input
-              className="flex-1 rounded-xl bg-white/10 border border-white/15 px-4 py-3 outline-none"
-              placeholder="Email Address"
-            />
-            <button className="rounded-xl px-4 py-3 bg-[var(--brand-gold)] text-[var(--brand-navy)] font-semibold">
-              Sign-Up
-            </button>
+            <input className="flex-1 rounded-xl bg-white/10 border border-white/15 px-4 py-2.5 outline-none placeholder-white/60" placeholder="Email Address" />
+            <button className="btn">Sign-Up ›</button>
           </div>
           <div className="mt-4 flex gap-3">
             {["f","»","in","▶"].map((s,i)=>(
-              <span key={i} className="w-10 h-10 grid place-items-center rounded-full bg-white/10">{s}</span>
+              <span key={i} className="w-12 h-12 rounded-full bg-white/10 grid place-items-center">{s}</span>
             ))}
           </div>
         </div>
 
-        {/* 2) Mission */}
+        {/* Column 2: Mission */}
         <div>
-          <h3 className="font-display text-xl">Committed to Community</h3>
+          <h4 className="font-display text-xl">Committed to Community</h4>
           <p className="mt-2 text-white/80">
             We collaborate with like-minded people to make a positive difference economically and socially.
             From community support to mobility and small business, we put families first. Let’s build together.
           </p>
-          <Link href="/about" className="mt-3 inline-block text-[var(--brand-gold)]">
-            More About Our Mission ›
-          </Link>
+          <Link href="/about" className="mt-3 inline-block underline text-[var(--brand-gold)]">More About Our Mission ›</Link>
         </div>
 
-        {/* 3) Navigate */}
-        <div>
-          <h3 className="font-display text-xl">Navigate</h3>
-          <div className="mt-2 grid grid-cols-2 gap-x-10 gap-y-2">
-            <Link href="/programs/autos">Autos ›</Link>
-            <Link href="/programs/investment">Investment ›</Link>
-            <Link href="/programs/community-support">Community Support ›</Link>
-            <Link href="/donation">Donation ›</Link>
-            <Link href="/careers">Careers ›</Link>
-            <Link href="/resources">Resources ›</Link>
-            <Link href="/partnerships">Partnerships ›</Link>
-            <Link href="/about">About ›</Link>
+        {/* Column 3: Navigate */}
+        <nav className="grid grid-cols-2 gap-x-8">
+          <div className="space-y-2">
+            <h5 className="uppercase tracking-wide text-white/70 text-sm">Navigate</h5>
+            <Link href="/programs/autos" className="block hover:underline">Autos ›</Link>
+            <Link href="/programs/investment" className="block hover:underline">Investment ›</Link>
+            <Link href="/programs/community-support" className="block hover:underline">Community Support ›</Link>
+            <Link href="/donation" className="block hover:underline">Donation ›</Link>
           </div>
-        </div>
+          <div className="space-y-2 mt-6 md:mt-7">
+            <Link href="/careers" className="block hover:underline">Careers ›</Link>
+            <Link href="/resources" className="block hover:underline">Resources ›</Link>
+            <Link href="/contact" className="block hover:underline">Contact Us ›</Link>
+            <Link href="/about" className="block hover:underline">About ›</Link>
+            <Link href="/programs/investment/partnerships" className="block hover:underline">Partnerships ›</Link>
+          </div>
+        </nav>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="container-default py-5 text-white/80 flex items-center justify-between gap-4 flex-wrap">
+        <div className="container-default py-4 flex flex-wrap items-center justify-between gap-3 text-white/80">
           <div>
-            Bsons Inc • 49 Little Avenue, Bowmanville, ON L1C 1J8 •{" "}
-            <a className="text-[var(--brand-gold)]" href="https://maps.google.com/?q=49+Little+Avenue+Bowmanville+ON+L1C+1J8" target="_blank">Map</a>
+            Bsons Inc • 49 Little Avenue, Bowmanville ON L1C 1J8 • <Link href="https://maps.app.goo.gl/" className="underline text-[var(--brand-gold)]">Map</Link>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/sitemap.xml">
-              <span className="inline-block rounded-xl bg-white/10 px-3 py-1">Sitemap</span>
-            </Link>
-            <span>© {new Date().getFullYear()} Bsons Inc.</span>
+            <Link href="/privacy" className="hover:underline">Privacy Policy</Link>
+            <Link href="/sitemap.xml" className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15">Sitemap</Link>
+            <span>© 2025 Bsons Inc.</span>
           </div>
         </div>
       </div>
