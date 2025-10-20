@@ -1,6 +1,6 @@
 import Link from "next/link";
 import FeatureCard from "@/components/FeatureCard";
-import CTA from "@/components/CTA";
+import QuickLinks from "@/components/QuickLinks";
 
 export default function Page() {
   return (
@@ -8,38 +8,40 @@ export default function Page() {
       {/* HERO */}
       <section className="relative">
         <div className="absolute inset-0 -z-10">
-          <img src="/hero.jpg" className="w-full h-full object-cover opacity-90" alt="Bsons Inc hero"/>
+          <img src="/hero.jpg" className="w-full h-full object-cover opacity-90" alt="Hero"/>
           <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/92 to-white" />
         </div>
         <div className="container-default py-12 md:py-20 grid md:grid-cols-2 gap-8">
           <div>
             <h1 className="font-display text-4xl md:text-6xl text-brand-navy leading-tight">
-              Welcome to Bsons Inc.
+              Bsons Inc. — Community • Commerce • Generational Wealth
             </h1>
             <p className="mt-3 text-lg text-neutral-700">
-              We help families and small businesses move forward—through practical mobility solutions,
-              access to partner financing, and simple investment education. Our mission blends{" "}
-              <strong>Community</strong>, <strong>Commerce</strong>, and <strong>Generational Wealth</strong> so
-              every step feels clear, honest, and achievable.
+              We’re Bourgeois &amp; Sons Incorporated: a family-led initiative supporting mobility,
+              business creation, and simple investment education across the US, Canada, UK, and Australia.
+              Our approach is clear: <strong>small steps, transparent terms, and real outcomes</strong>.
             </p>
             <p className="mt-2 text-neutral-700">
-              Serving the US, Canada, UK, and Australia since 2019, we focus on real outcomes:
-              reliable vehicles with weekly plans, straightforward loan pathways, and easy-to-grasp
-              investing basics (including crypto safety) so you can save while you grow.
+              We help people get moving (Autos), stabilize and grow (Loans &amp; Programs), and build
+              confidence with money (Investing 101 &amp; crypto safety). Funding comes from donations,
+              the founder’s pension, and—when needed—the Bourgeois Family Generational Account.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link className="btn" href="/programs">Explore Programs</Link>
               <Link className="btn-outline" href="/apply">Quick Apply</Link>
             </div>
-            <div className="mt-4 text-xs text-neutral-600">US • Canada • UK • Australia • Est. 2019</div>
+            <div className="mt-4 text-xs text-neutral-600">
+              Serving: US • Canada • UK • Australia • Est. 2019
+            </div>
           </div>
-
           <div className="grid gap-4">
             <div className="card flex items-center gap-4">
               <img src="/autos.jpg" className="w-24 h-24 rounded-xl object-cover" alt="Autos"/>
               <div>
                 <h3 className="font-display text-xl text-brand-navy">Autos (Buy • Sell • Rent)</h3>
-                <p className="text-sm text-neutral-600">Weekly payments, trucks & cars, plus referral bonuses.</p>
+                <p className="text-sm text-neutral-600">
+                  Weekly payments for trucks &amp; cars. Referral bonuses. Clear paperwork.
+                </p>
                 <Link className="mt-2 inline-flex btn-outline" href="/programs/autos">See Vehicles</Link>
               </div>
             </div>
@@ -47,7 +49,9 @@ export default function Page() {
               <img src="/invest.jpg" className="w-24 h-24 rounded-xl object-cover" alt="Investment"/>
               <div>
                 <h3 className="font-display text-xl text-brand-navy">Investment Programs</h3>
-                <p className="text-sm text-neutral-600">Save while you invest: types, benefits, risks, and crypto basics.</p>
+                <p className="text-sm text-neutral-600">
+                  Save while you invest. Learn types, risks, benefits, and crypto basics—legit, but be safe.
+                </p>
                 <Link className="mt-2 inline-flex btn-outline" href="/programs/investment">Learn More</Link>
               </div>
             </div>
@@ -55,75 +59,43 @@ export default function Page() {
         </div>
       </section>
 
-      {/* PROGRAM GRID */}
-      <section className="container-default py-12">
+      {/* QUICK LINKS AS BUTTONS */}
+      <section className="container-default py-8">
+        <QuickLinks />
+      </section>
+
+      {/* FEATURE GRID */}
+      <section className="container-default pb-12">
         <div className="grid md:grid-cols-3 gap-6">
-          <FeatureCard title="Community Support" href="/programs/community-support">
+          <FeatureCard title="Community Support" href="/programs/community-support" cta="Learn More">
             Targeted help for families, seniors, and people with disabilities.
           </FeatureCard>
-          <FeatureCard title="Small Business Loan" href="/programs/small-business-loan">
+          <FeatureCard title="Small Business Loan" href="/programs/small-business-loan" cta="Check Details">
             Working capital for inventory, equipment, and growth.
           </FeatureCard>
-          <FeatureCard title="How It Works" href="/how-it-works">
-            Simple steps from pre-check to approval and support.
+          <FeatureCard title="How It Works" href="/how-it-works" cta="View Steps">
+            From pre-check to approval—simple, transparent, supported.
           </FeatureCard>
-          <FeatureCard title="Donation" href="/donation">
+          <FeatureCard title="Donation" href="/donation" cta="Donate">
             Your gifts expand local impact. Every dollar counts.
           </FeatureCard>
-          <FeatureCard title="Careers" href="/careers">
-            Join as FDO and other roles — mission-driven, community-first.
+          <FeatureCard title="Careers" href="/careers" cta="View Roles">
+            Join as FDO and other roles—mission-driven, community-first.
           </FeatureCard>
-          <FeatureCard title="Resources" href="/resources">
-            Guides, FAQs, disclosures, and investor education.
+          <FeatureCard title="Resources" href="/resources" cta="Open Hub">
+            Guides, FAQs, and disclosures in one place.
           </FeatureCard>
-        </div>
-      </section>
-
-      {/* AUTOS SPOTLIGHT */}
-      <section className="bg-[var(--brand-cream)] border-y">
-        <div className="container-default py-12 md:py-16 grid md:grid-cols-2 gap-8">
-          <img src="/autos.jpg" className="w-full h-64 md:h-80 object-cover rounded-2xl border" alt="Autos"/>
-          <div className="flex flex-col justify-center">
-            <h2 className="font-display text-3xl md:text-4xl text-brand-navy">Autos: Buy • Sell • Rent</h2>
-            <p className="mt-2 text-neutral-700">
-              Our founder leads the Autos arm: trucks & vehicles with transparent weekly plans and referral bonuses.
-            </p>
-            <div className="mt-6 flex gap-3">
-              <Link href="/programs/autos" className="btn">See Vehicles</Link>
-              <Link href="/apply?program=autos" className="btn-outline">Apply</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* INVEST EXPLAINER */}
-      <section>
-        <div className="container-default py-12 md:py-16 grid md:grid-cols-2 gap-8">
-          <div className="order-2 md:order-1 flex flex-col justify-center">
-            <h2 className="font-display text-3xl md:text-4xl text-brand-navy">Investment, explained simply</h2>
-            <p className="mt-2 text-neutral-700">
-              Save funds while investing and earn more over time. We cover the major types of investments,
-              risk/benefit trade-offs, and fast-growing areas like crypto. Crypto is legitimate but often
-              abused by scammers — we teach safe, informed participation.
-            </p>
-            <div className="mt-6 flex gap-3">
-              <Link href="/programs/investment" className="btn">Learn More</Link>
-              <Link href="/apply?program=investment" className="btn-outline">Get Started</Link>
-            </div>
-          </div>
-          <img src="/invest.jpg" className="order-1 md:order-2 w-full h-64 md:h-80 object-cover rounded-2xl border" alt="Investment"/>
         </div>
       </section>
 
       {/* FOUNDER NOTE */}
-      <section className="container-default py-12">
+      <section className="container-default pb-12">
         <div className="card">
           <h3 className="font-display text-2xl text-brand-navy">Founder’s Note</h3>
           <p className="mt-2 text-neutral-700">
             The Bourgeois family has supported communities offline for years. After retirement from{" "}
             <a href="https://www.metrolinx.com" className="text-brand-blue underline" target="_blank">Metrolinx</a>,
-            we’re bringing Community Support online. Funding comes from donations, the founder’s Metrolinx pension,
-            and — for larger needs — the Bourgeois Family Generational Account.
+            we’re bringing Community Support online. When needs are larger, we tap our Family Generational Account.
           </p>
           <Link className="mt-4 inline-flex btn-outline" href="/about">Read full story</Link>
         </div>
@@ -136,25 +108,6 @@ export default function Page() {
           <Link className="btn bg-[var(--brand-gold)] text-[var(--brand-navy)]" href="/donation">Donate</Link>
         </div>
       </section>
-
-      {/* TESTIMONIALS */}
-      <section className="container-default py-12">
-        <h2 className="font-display text-3xl text-brand-navy">What people say</h2>
-        <div className="mt-6 grid md:grid-cols-3 gap-6">
-          {[
-            ["“The weekly truck plan let me start my delivery side-business.”", "— M. A., Toronto"],
-            ["“Clear steps and friendly support. The process just made sense.”", "— R. K., Houston"],
-            ["“Their investment class finally demystified index funds for me.”", "— J. B., London"],
-          ].map(([quote, by], i) => (
-            <figure key={i} className="card">
-              <blockquote className="text-neutral-700">{quote}</blockquote>
-              <figcaption className="mt-3 text-sm text-neutral-500">{by}</figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      <CTA title="Ready to begin?" primaryHref="/apply" secondaryHref="/contact" />
     </>
   );
 }

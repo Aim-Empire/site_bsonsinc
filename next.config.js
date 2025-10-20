@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: { unoptimized: true },
-  output: 'export',          // build to /out
-  trailingSlash: true        // static-safe URLs
+  output: 'export',            // fully static
+  images: { unoptimized: true }
 };
 module.exports = nextConfig;
