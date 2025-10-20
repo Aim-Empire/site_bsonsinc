@@ -18,10 +18,12 @@
   },
   "devDependencies": {
     "@next/swc-wasm-nodejs": "^15.5.6",
+    "@types/node": "^20.19.22",
+    "@types/react": "^18.3.26",
     "autoprefixer": "10.4.20",
     "postcss": "8.4.47",
     "tailwindcss": "3.4.13",
-    "typescript": "5.5.4"
+    "typescript": "^5.5.4"
   },
   "description": "Bsons Inc official site — Community • Commerce • Generational Wealth. Built with Next.js + Tailwind, light theme version.",
   "author": "Boss Aim (Aim Empire)",
