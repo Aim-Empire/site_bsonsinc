@@ -1,6 +1,22 @@
 import Link from "next/link";
-import FeatureCard from "@/components/FeatureCard";
-import CTA from "@/components/CTA";
+
+type CardProps = {
+  href: string;
+  title: string;
+  desc: string;
+  img: string;
+  bg: string; // tailwind class for soft background
+};
+const ProgramCard = ({ href, title, desc, img, bg }: CardProps) => (
+  <div className={`card flex items-center gap-4 ${bg}`}>
+    <img src={img} alt={title} className="w-24 h-24 rounded-xl object-cover" />
+    <div>
+      <h3 className="font-display text-xl text-[var(--brand-navy)]">{title}</h3>
+      <p className="text-sm text-neutral-700">{desc}</p>
+      <Link className="mt-2 inline-block btn-outline" href={href}>Learn more</Link>
+    </div>
+  </div>
+);
 
 export default function Page(){
   return (
@@ -34,51 +50,109 @@ export default function Page(){
             <p className="mt-3 italic text-neutral-600">Community • Commerce • Generational Wealth</p>
           </div>
 
+          {/* Two highlighted programs */}
           <div className="grid gap-4">
-            <div className="card flex items-center gap-4">
-              <img src="/autos.jpg" className="w-24 h-24 rounded-xl object-cover" alt="Autos"/>
-              <div>
-                <h3 className="font-display text-xl text-[var(--brand-navy)]">Autos (Buy • Sell • Rent)</h3>
-                <p className="text-sm text-neutral-600">Trucks & cars with fair weekly payments and referral bonuses.</p>
-                <Link className="mt-2 inline-block btn-outline" href="/programs/autos">Learn more</Link>
-              </div>
-            </div>
-            <div className="card flex items-center gap-4">
-              <img src="/invest.jpg" className="w-24 h-24 rounded-xl object-cover" alt="Investment"/>
-              <div>
-                <h3 className="font-display text-xl text-[var(--brand-navy)]">Investment Programs</h3>
-                <p className="text-sm text-neutral-600">Save while you invest. Learn types, risks, benefits, and crypto basics.</p>
-                <Link className="mt-2 inline-block btn-outline" href="/programs/investment">Learn more</Link>
-              </div>
-            </div>
+            <ProgramCard
+              href="/programs/autos"
+              title="Autos (Buy • Sell • Rent)"
+              desc="Trucks & cars with fair weekly payments and referral bonuses."
+              img="/autos.jpg"
+              bg="bg-[#F7FBFF]"
+            />
+            <ProgramCard
+              href="/programs/investment"
+              title="Investment Programs"
+              desc="Save while you invest. Learn types, risks, benefits, and crypto basics."
+              img="/invest.jpg"
+              bg="bg-[#FFF9F2]"
+            />
           </div>
         </div>
       </section>
 
-      {/* GRID LINKS */}
-      <section className="container-default py-10">
+      {/* Programs grid with images and unique backgrounds */}
+      <section className="container-default py-8 md:py-12">
         <div className="grid md:grid-cols-3 gap-6">
-          <FeatureCard title="Community Support" href="/programs/community-support">Targeted help for families, seniors, and people with disabilities.</FeatureCard>
-          <FeatureCard title="Small Business Loan" href="/programs/small-business-loan">Working capital for inventory, equipment, and growth.</FeatureCard>
-          <FeatureCard title="How It Works" href="/how-it-works">Simple steps from pre-check to approval and support.</FeatureCard>
-          <FeatureCard title="Donation" href="/donation">Your gifts expand local impact. Every dollar counts.</FeatureCard>
-          <FeatureCard title="Careers" href="/careers">Join as FDO and other roles — mission-driven, community-first.</FeatureCard>
-          <FeatureCard title="Resources" href="/resources">Guides, FAQs, and disclosures in one place.</FeatureCard>
+          <ProgramCard
+            href="/programs/community-support"
+            title="Community Support"
+            desc="Targeted help for families, seniors, and people with disabilities."
+            img="/community.jpg"
+            bg="bg-[#F6FFF8]"
+          />
+          <ProgramCard
+            href="/careers"
+            title="Careers"
+            desc="Join as a Field Development Officer or other roles—mission first."
+            img="/careers.jpg"
+            bg="bg-[#F5F7FF]"
+          />
+          <ProgramCard
+            href="/donation"
+            title="Donation"
+            desc="Your gifts expand local impact across US, Canada, UK & Australia."
+            img="/donate.jpg"
+            bg="bg-[#FFF7FB]"
+          />
+          <ProgramCard
+            href="/resources"
+            title="Resources"
+            desc="Guides, FAQs, and disclosures all in one place."
+            img="/resources.jpg"
+            bg="bg-[#FFFDF6]"
+          />
+          <ProgramCard
+            href="/about"
+            title="About"
+            desc="The founder’s note and our story."
+            img="/about.jpg"
+            bg="bg-[#F8FAFF]"
+          />
+          <ProgramCard
+            href="/programs/investment/partnerships"
+            title="Partnership Investment"
+            desc="Private projects, cloud mining/JV, or BST token—compliance-first."
+            img="/invest.jpg"
+            bg="bg-[#FFF6EC]"
+          />
         </div>
       </section>
 
-      {/* Testimonials block just above footer */}
-      <section className="container-default pb-10">
-        <h2 className="h2">Testimonials</h2>
+      {/* Quick Links (navy section) BEFORE Testimonials */}
+      <section className="bg-[#0A2C57] text-white">
+        <div className="container-default py-8">
+          <h2 className="font-display text-3xl">Quick Links</h2>
+          <div className="mt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {[
+              ["Autos","/programs/autos"],
+              ["Investment","/programs/investment"],
+              ["Community Support","/programs/community-support"],
+              ["Careers","/careers"],
+              ["Donation","/donation"],
+              ["Resources","/resources"],
+              ["Partnership Investment","/programs/investment/partnerships"],
+            ].map(([label,href])=>(
+              <Link key={href} href={href}
+                className="rounded-xl px-4 py-3 text-base bg-white/10 border border-white/15 hover:bg-white/15 text-white/95 text-center">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials with soft varied backgrounds */}
+      <section className="container-default py-10">
+        <h2 className="font-display text-3xl text-[var(--brand-navy)]">Testimonials</h2>
         <div className="mt-6 grid md:grid-cols-3 gap-6">
           {[
-            ["“The weekly truck plan helped me launch deliveries.”","— M. A., Toronto"],
-            ["“Clear steps and friendly support. It just works.”","— R. K., Houston"],
-            ["“Their investment class finally demystified index funds.”","— J. B., London"]
-          ].map(([q,by],i)=>(
-            <figure key={i} className="card">
-              <blockquote className="text-neutral-700">{q}</blockquote>
-              <figcaption className="mt-3 text-sm text-neutral-500">{by}</figcaption>
+            ["“The weekly truck plan helped me launch deliveries.”","— M. A., Toronto","bg-[#F7FBFF]"],
+            ["“Clear steps and friendly support. It just works.”","— R. K., Houston","bg-[#F6FFF8]"],
+            ["“Their investment class finally demystified index funds.”","— J. B., London","bg-[#FFF9F2]"]
+          ].map(([q,by,bg],i)=>(
+            <figure key={i} className={`card ${bg}`}>
+              <blockquote className="text-neutral-800">{q}</blockquote>
+              <figcaption className="mt-3 text-sm text-neutral-600">{by}</figcaption>
             </figure>
           ))}
         </div>
