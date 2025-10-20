@@ -1,73 +1,50 @@
 import Link from "next/link";
 
 const quick = [
-  { href: "/", label: "Home" },
   { href: "/programs", label: "Programs" },
-  { href: "/programs/autos", label: "Autos" },
-  { href: "/programs/investment", label: "Investment" },
-  { href: "/donation", label: "Donation" },
+  { href: "/how-it-works", label: "How It Works" },
   { href: "/apply", label: "Apply" },
+  { href: "/donation", label: "Donate" },
+  { href: "/resources", label: "Resources" },
   { href: "/careers", label: "Careers" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" }
 ];
 
-export default function Footer(){
+export default function Footer() {
+  const mapsUrl = encodeURI("https://maps.google.com/?q=49 Little Avenue, Bowmanville ON L1C 1J8");
   return (
-    <footer className="mt-12 bg-[#0B1E34] text-white">
-      <div className="container-default py-10 grid md:grid-cols-3 gap-8">
-        {/* Brand / Company */}
+    <footer className="mt-10 bg-[#0B1E34] text-white">
+      <div className="container-default py-10 grid gap-8 md:grid-cols-2">
         <div>
-          <div className="flex items-center gap-3">
-            <span className="w-10 h-10 rounded-full bg-white grid place-items-center overflow-hidden">
-              <img src="/logo.png" alt="Bsons Inc" className="w-8 h-8 object-contain" />
+          <div className="flex items-center gap-2">
+            <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden ring-1 ring-white/30">
+              <img src="/logo.png" className="w-7 h-7 object-contain" alt="Bsons Inc logo" />
             </span>
-            <span className="font-display text-xl">Bsons Inc.</span>
+            <div className="font-display text-xl">Bsons Inc.</div>
           </div>
-          <p className="mt-3 text-sm text-white/80">
-            Community • Commerce • Generational Wealth
+          <p className="mt-3 text-white/80 text-sm italic">
+            Building community, growing commerce, and protecting generational wealth.
           </p>
-          <div className="mt-4 space-y-2 text-sm">
-            <div>Support: <a className="underline" href="mailto:support@bsonsinc.com">support@bsonsinc.com</a></div>
-            <div>Admin: <a className="underline" href="mailto:admin@bsonsinc.com">admin@bsonsinc.com</a></div>
-            <div>Careers: <a className="underline" href="mailto:career@bsonsinc.com">career@bsonsinc.com</a></div>
-            <div className="pt-1">
-              <a
-                href="https://wa.me/19056971979"
-                className="btn bg-[var(--brand-gold)] text-[var(--brand-navy)]"
-                target="_blank"
-              >
-                WhatsApp Support
-              </a>
-            </div>
-            <div className="text-white/80">49 Little Avenue, Bowmanville ON L1C 1J8</div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <a href="https://wa.me/19056971979" target="_blank" className="btn">WhatsApp Support</a>
+            <a href="mailto:support@bsonsinc.com" className="btn-outline">Support Email</a>
+            <a href="mailto:careers@bsonsinc.com" className="btn-outline">Careers Email</a>
+            <a href={mapsUrl} target="_blank" className="btn-outline">Open in Maps</a>
           </div>
         </div>
-
-        {/* Quick Links as buttons */}
         <div>
-          <h4 className="font-semibold mb-3">Quick Links</h4>
-          <div className="grid grid-cols-2 gap-2">
-            {quick.map(i => (
-              <Link key={i.href} href={i.href as any} className="btn-outline text-center">
-                {i.label}
-              </Link>
+          <div className="font-semibold mb-3">Quick Links</div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {quick.map(q => (
+              <Link key={q.href} href={q.href as any} className="btn-ghost text-center">{q.label}</Link>
             ))}
           </div>
         </div>
-
-        {/* Disclaimer */}
-        <div>
-          <h4 className="font-semibold mb-3">Disclaimer</h4>
-          <p className="italic text-sm text-white/80">
-            Information on this site is for general purposes only and does not constitute financial,
-            legal, or investment advice. Eligibility, terms, and availability are subject to verification
-            and partner approval. Not all applicants will qualify.
-          </p>
-          <p className="mt-3 text-xs text-white/60">
-            © {new Date().getFullYear()} Bsons Inc. All rights reserved.
-          </p>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="container-default py-6 text-xs text-white/70 italic">
+          This site is for informational purposes only and does not constitute financial advice.
         </div>
       </div>
     </footer>

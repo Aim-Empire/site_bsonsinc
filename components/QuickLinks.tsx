@@ -15,7 +15,7 @@ export default function QuickLinks() {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
       {links.map((l) => (
-        <Link key={l.href} href={l.href as any} className="btn-outline text-center">
+        <Link key={l.href} href={l.href as any} className="btn-ghost text-center">
           {l.label}
         </Link>
       ))}

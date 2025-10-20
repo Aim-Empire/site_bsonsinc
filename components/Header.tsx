@@ -7,11 +7,9 @@ const nav = [
   { href: "/programs", label: "Programs" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/resources", label: "Resources" },
-  { href: "/contact", label: "Contact" },
-  { href: "/apply", label: "Apply" },
   { href: "/careers", label: "Careers" },
   { href: "/donation", label: "Donation" },
-  { href: "/about", label: "About" }
+  { href: "/about", label: "About" } // About last
 ];
 
 export default function Header() {
@@ -21,17 +19,20 @@ export default function Header() {
       <header className="z-40 bg-[#0B1E34] text-white">
         <div className="container-default h-14 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden">
+            <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden ring-1 ring-white/30">
               <img src="/logo.png" className="w-7 h-7 object-contain" alt="Bsons Inc logo" />
             </span>
           </Link>
           <div className="font-display text-lg tracking-wide">Bsons Inc.</div>
           <button
+            aria-label="Open menu"
             onClick={() => setOpen(true)}
             className="inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10"
+            title="Menu"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M12 4v16M7 4v16M17 4v16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            {/* three vertical bars */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 4v16M12 4v16M18 4v16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
             </svg>
           </button>
         </div>
@@ -41,24 +42,25 @@ export default function Header() {
         <div className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
           <aside className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-[#0B1E34] text-white shadow-xl p-5 overflow-y-auto">
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden">
-                  <img src="/logo.png" className="w-7 h-7 object-contain" alt="logo" />
+                <span className="w-9 h-9 rounded-full bg-white grid place-items-center overflow-hidden ring-1 ring-white/30">
+                  <img src="/logo.png" className="w-7 h-7 object-contain" alt="Bsons Inc logo" />
                 </span>
                 <span className="font-semibold">Menu</span>
               </div>
               <button onClick={() => setOpen(false)} className="w-10 h-10 grid place-items-center rounded-lg hover:bg-white/10">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
               </button>
             </div>
-            <nav className="grid gap-2">
+
+            <nav className="mt-4 grid gap-2">
               {nav.map((i) => (
                 <Link
                   key={i.href}
                   href={i.href as any}
+                  className="w-full text-left rounded-xl px-4 py-3 bg-white/10 hover:bg-white/15 border border-white/15"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10"
                 >
                   {i.label}
                 </Link>

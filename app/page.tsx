@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FeatureCard from "@/components/FeatureCard";
 import QuickLinks from "@/components/QuickLinks";
+import Testimonials from "@/components/Testimonials";
 
 export default function Page() {
   return (
@@ -14,9 +15,12 @@ export default function Page() {
         <div className="container-default py-12 md:py-20 grid md:grid-cols-2 gap-8">
           <div>
             <h1 className="font-display text-4xl md:text-6xl text-brand-navy leading-tight">
-              Bsons Inc. — Community • Commerce • Generational Wealth
+              Bsons Inc.
             </h1>
-            <p className="mt-3 text-lg text-neutral-700">
+            <div className="mt-1 text-base md:text-lg italic text-brand-navy/80">
+              Community • Commerce • Generational Wealth
+            </div>
+            <p className="mt-4 text-lg text-neutral-700">
               We’re Bourgeois &amp; Sons Incorporated: a family-led initiative supporting mobility,
               business creation, and simple investment education across the US, Canada, UK, and Australia.
               Our approach is clear: <strong>small steps, transparent terms, and real outcomes</strong>.
@@ -59,45 +63,32 @@ export default function Page() {
         </div>
       </section>
 
-      {/* QUICK LINKS AS BUTTONS */}
+      {/* QUICK LINKS */}
       <section className="container-default py-8">
         <QuickLinks />
       </section>
 
-      {/* FEATURE GRID */}
+      {/* FEATURE GRID: include Community Support + Careers cards too */}
       <section className="container-default pb-12">
         <div className="grid md:grid-cols-3 gap-6">
-          <FeatureCard title="Community Support" href="/programs/community-support" cta="Learn More">
+          <FeatureCard title="Community Support" href="/programs/community-support">
             Targeted help for families, seniors, and people with disabilities.
           </FeatureCard>
           <FeatureCard title="Small Business Loan" href="/programs/small-business-loan" cta="Check Details">
             Working capital for inventory, equipment, and growth.
           </FeatureCard>
-          <FeatureCard title="How It Works" href="/how-it-works" cta="View Steps">
-            From pre-check to approval—simple, transparent, supported.
-          </FeatureCard>
-          <FeatureCard title="Donation" href="/donation" cta="Donate">
-            Your gifts expand local impact. Every dollar counts.
-          </FeatureCard>
-          <FeatureCard title="Careers" href="/careers" cta="View Roles">
+          <FeatureCard title="Careers" href="/careers">
             Join as FDO and other roles—mission-driven, community-first.
+          </FeatureCard>
+          <FeatureCard title="Autos (Buy • Sell • Rent)" href="/programs/autos" cta="See Vehicles">
+            Flexible weekly payments. Trucks &amp; cars. Referral bonuses.
+          </FeatureCard>
+          <FeatureCard title="Investment Programs" href="/programs/investment" cta="Learn More">
+            Save while you invest. Types, benefits, crypto basics &amp; safety.
           </FeatureCard>
           <FeatureCard title="Resources" href="/resources" cta="Open Hub">
             Guides, FAQs, and disclosures in one place.
           </FeatureCard>
-        </div>
-      </section>
-
-      {/* FOUNDER NOTE */}
-      <section className="container-default pb-12">
-        <div className="card">
-          <h3 className="font-display text-2xl text-brand-navy">Founder’s Note</h3>
-          <p className="mt-2 text-neutral-700">
-            The Bourgeois family has supported communities offline for years. After retirement from{" "}
-            <a href="https://www.metrolinx.com" className="text-brand-blue underline" target="_blank">Metrolinx</a>,
-            we’re bringing Community Support online. When needs are larger, we tap our Family Generational Account.
-          </p>
-          <Link className="mt-4 inline-flex btn-outline" href="/about">Read full story</Link>
         </div>
       </section>
 
@@ -108,6 +99,9 @@ export default function Page() {
           <Link className="btn bg-[var(--brand-gold)] text-[var(--brand-navy)]" href="/donation">Donate</Link>
         </div>
       </section>
+
+      {/* TESTIMONIALS BEFORE FOOTER */}
+      <Testimonials />
     </>
   );
 }
