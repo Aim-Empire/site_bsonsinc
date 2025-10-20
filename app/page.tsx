@@ -1,86 +1,125 @@
-import Link from "next/link";
-import FeatureCard from "@/components/FeatureCard";
+export const metadata = { title: "Bsons Inc. | Community • Commerce • Generational Wealth" };
 
-export default function Page() {
+const Card = ({
+  title,
+  copy,
+  href,
+  img,
+}: {
+  title: string;
+  copy: string;
+  href: string;
+  img: string;
+}) => (
+  <a href={href} className="grid md:grid-cols-[200px_1fr] gap-4 items-center card hover:shadow-md">
+    <img src={img} alt="" className="rounded-xl border w-full h-36 object-cover" />
+    <div>
+      <h3 className="font-display text-2xl text-brand-navy">{title}</h3>
+      <p className="mt-1 text-neutral-700">{copy}</p>
+      <span className="inline-block mt-2 underline text-brand-blue">Learn more</span>
+    </div>
+  </a>
+);
+
+export default function Home() {
   return (
-    <>
+    <main>
       {/* HERO */}
-      <section className="relative">
-        <div className="absolute inset-0 -z-10">
-          <img src="/hero.jpg" className="w-full h-full object-cover opacity-90" alt="Bsons Inc hero"/>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/92 to-white" />
-        </div>
-        <div className="container-default py-12 md:py-20 grid md:grid-cols-2 gap-8">
-          <div>
-            <h1 className="font-display text-4xl md:text-6xl text-brand-navy leading-tight">
-              Community • Commerce • Generational Wealth
-            </h1>
-            <p className="mt-3 text-lg text-neutral-700">
-              We support families and small businesses through community programs, simple investing education,
-              and the founder’s Autos business (buy, sell, rent with flexible weekly plans).
-              Offline support began years ago and has since come online to reach more communities.
-            </p>
-            <p className="mt-2 italic text-brand-blue/80">Community • Commerce • Generational Wealth</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link className="btn" href="/programs">Explore Programs</Link>
-              <Link className="btn-outline" href="/partnerships">Partnership Investments</Link>
-            </div>
-          </div>
-          <div className="grid gap-4">
-            <div className="card flex items-center gap-4">
-              <img src="/autos.jpg" className="w-24 h-24 rounded-xl object-cover" alt="Autos"/>
-              <div>
-                <h3 className="font-display text-xl text-brand-navy">Autos (Buy • Sell • Rent)</h3>
-                <p className="text-sm text-neutral-600">Flexible weekly payments. Trucks & cars. Referral bonuses.</p>
-                <Link className="mt-2 inline-block btn-outline" href="/programs/autos">See Vehicles</Link>
-              </div>
-            </div>
-            <div className="card flex items-center gap-4">
-              <img src="/invest.jpg" className="w-24 h-24 rounded-xl object-cover" alt="Investment"/>
-              <div>
-                <h3 className="font-display text-xl text-brand-navy">Investment Programs</h3>
-                <p className="text-sm text-neutral-600">Clear steps: types, risks, benefits, and crypto basics.</p>
-                <Link className="mt-2 inline-block btn-outline" href="/programs/investment">Learn More</Link>
-              </div>
-            </div>
+      <section className="bg-[var(--brand-cream)]">
+        <div className="container-default py-10 md:py-14">
+          <h1 className="font-display text-4xl md:text-6xl text-brand-navy">Bsons Inc.</h1>
+          <p className="italic text-brand-blue/80 mt-2">Community • Commerce • Generational Wealth</p>
+
+          <p className="mt-5 text-neutral-800 max-w-3xl">
+            We support families and small businesses through community programs, simple investing
+            education, and the founder’s Autos business (buy, sell, rent with flexible weekly plans).
+          </p>
+          <p className="mt-3 text-neutral-800 max-w-3xl">
+            We prioritise clear steps, transparent terms, and real outcomes — guiding you from first
+            enquiry to confident action.
+          </p>
+          <p className="mt-3 italic text-brand-blue/80">Community • Commerce • Generational Wealth</p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn" href="/programs">Explore Programs</a>
+            <a className="btn-outline" href="/apply">Quick Apply</a>
+            <a className="btn" href="/partnerships">Partnership Investment</a>
           </div>
         </div>
       </section>
 
-      {/* Quick Links */}
-      <section className="container-default py-12">
-        <div className="grid md:grid-cols-3 gap-6">
-          <FeatureCard title="Partnership Investments" href="/partnerships">
-            Join real projects with transparent ROI and reporting.
-          </FeatureCard>
-          <FeatureCard title="Community Support" href="/programs/community-support">
-            Targeted help for families, seniors, and people with disabilities.
-          </FeatureCard>
-          <FeatureCard title="Careers" href="/careers">
-            Join as FDO and other roles — mission-driven, community-first.
-          </FeatureCard>
+      {/* PROGRAM CARDS */}
+      <section className="container-default py-10 grid gap-6">
+        <Card
+          title="Autos (Buy • Sell • Rent)"
+          copy="Trucks & cars with fair weekly payments and referral bonuses."
+          href="/programs/autos"
+          img="/autos.jpg?v=6"
+        />
+        <Card
+          title="Investment Programs"
+          copy="Save while you invest. Learn types, risks, benefits, and crypto basics."
+          href="/programs/investment"
+          img="/invest.jpg?v=6"
+        />
+        <Card
+          title="Community Support"
+          copy="Targeted help for families, seniors, and people with disabilities."
+          href="/programs/community-support"
+          img="/community.jpg?v=6"
+        />
+        <Card
+          title="Careers"
+          copy="Join as a Field Development Officer or other roles—mission first."
+          href="/careers"
+          img="/careers.jpg?v=6"
+        />
+        <Card
+          title="Donation"
+          copy="Your gifts expand local impact across US, Canada, UK & Australia."
+          href="/donation"
+          img="/donate.jpg?v=6"
+        />
+        <Card
+          title="Resources"
+          copy="Guides, FAQs, and disclosures all in one place."
+          href="/resources"
+          img="/resources.jpg?v=6"
+        />
+        <Card
+          title="About"
+          copy="The founder’s note and our story."
+          href="/about"
+          img="/about.jpg?v=6"
+        />
+      </section>
+
+      {/* QUICK LINKS */}
+      <section className="container-default py-8">
+        <h2 className="font-display text-2xl text-brand-navy">Quick Links</h2>
+        <div className="mt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {[
+            { href: "/programs/autos", label: "Autos" },
+            { href: "/programs/investment", label: "Investment" },
+            { href: "/programs/community-support", label: "Community Support" },
+            { href: "/careers", label: "Careers" },
+            { href: "/donation", label: "Donation" },
+            { href: "/resources", label: "Resources" },
+          ].map((i) => (
+            <a key={i.href} href={i.href} className="btn-outline w-full text-center">{i.label}</a>
+          ))}
         </div>
       </section>
 
-      {/* Founder block */}
-      <section className="bg-[var(--brand-cream)] border-y">
-        <div className="container-default py-12 md:py-16 grid md:grid-cols-3 gap-8 items-center">
-          <img src="/founder.jpg" alt="Founder" className="rounded-2xl border w-full h-64 md:h-72 object-cover"/>
-          <div className="md:col-span-2">
-            <h2 className="font-display text-3xl md:text-4xl text-brand-navy">Founder’s Note</h2>
-            <p className="mt-2 text-neutral-700">
-              Our family has supported communities offline for years. After retirement from
-              <a href="https://www.metrolinx.com" className="text-brand-blue underline ml-1" target="_blank">Metrolinx</a>,
-              we brought that work online so more people can access mobility help, investing literacy, and small business support.
-              Funding comes from donations, the Metrolinx pension, and—when needs are larger—the Bourgeois Family Generational Account.
-            </p>
-            <div className="mt-4">
-              <div className="text-lg font-semibold text-brand-navy">— Founder, Bsons Inc.</div>
-              <div className="text-sm text-neutral-600 italic">Committed to practical solutions and transparent support.</div>
-            </div>
-          </div>
+      {/* TESTIMONIALS PREVIEW */}
+      <section className="container-default py-8">
+        <h2 className="font-display text-2xl text-brand-navy">Testimonials</h2>
+        <div className="mt-4 grid md:grid-cols-3 gap-4">
+          <figure className="card"><blockquote>“The weekly truck plan helped me launch deliveries.”</blockquote><figcaption className="mt-2 text-sm text-neutral-600">— M. A., Toronto</figcaption></figure>
+          <figure className="card"><blockquote>“Clear steps and friendly support. It just works.”</blockquote><figcaption className="mt-2 text-sm text-neutral-600">— R. K., Houston</figcaption></figure>
+          <figure className="card"><blockquote>“Their investment class finally demystified index funds.”</blockquote><figcaption className="mt-2 text-sm text-neutral-600">— J. B., London</figcaption></figure>
         </div>
       </section>
-    </>
+    </main>
   );
 }
