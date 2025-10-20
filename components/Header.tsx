@@ -1,6 +1,10 @@
-import Link from "next/link";
+"use client";
 
-const pages = [
+import Link from "next/link";
+import { useState } from "react";
+import clsx from "clsx";
+
+const nav = [
   { href: "/", label: "Home" },
   { href: "/programs", label: "Programs" },
   { href: "/how-it-works", label: "How It Works" },
@@ -10,51 +14,61 @@ const pages = [
   { href: "/apply", label: "Apply" },
   { href: "/careers", label: "Careers" },
   { href: "/donation", label: "Donation" },
-  { href: "/programs/autos", label: "Autos" },
-  { href: "/programs/loan", label: "Loan" },
-  { href: "/programs/small-business-loan", label: "Small Business Loan" },
-  { href: "/programs/investment", label: "Investment" },
-  { href: "/programs/community-support", label: "Community Support" },
+  { href: "/testimonials", label: "Testimonials" },
 ];
 
-export default function Header() {
+function KebabIcon({ className="" }:{className?:string}){
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
+    <svg viewBox="0 0 24 24" className={clsx("w-6 h-6", className)} fill="currentColor" aria-hidden="true">
+      <circle cx="12" cy="5" r="2"></circle>
+      <circle cx="12" cy="12" r="2"></circle>
+      <circle cx="12" cy="19" r="2"></circle>
+    </svg>
+  );
+}
+
+export default function Header(){
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="bg-white border-b">
       <div className="container-default h-16 grid grid-cols-3 items-center">
         {/* Left: Logo */}
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" className="w-9 h-9 rounded-full border" alt="logo" />
-          </Link>
+        <Link href="/" className="flex items-center gap-2">
+          <img src="/logo.png" className="w-9 h-9 rounded-full border" alt="logo"/>
+        </Link>
+
+        {/* Center: Title (shortened) */}
+        <div className="justify-self-center">
+          <Link href="/" className="font-display text-xl text-brand-navy">Bsons Inc.</Link>
         </div>
 
-        {/* Center: Company name */}
-        <div className="text-center">
-          <Link href="/" className="font-fancy text-lg md:text-xl text-brand-navy">
-            Bourgeois &amp; Sons Incorporated
-          </Link>
-        </div>
+        {/* Right: Kebab menu */}
+        <div className="justify-self-end relative">
+          <button
+            aria-label="Open menu"
+            onClick={() => setOpen(v => !v)}
+            className="rounded-xl p-2 text-brand-navy hover:bg-brand-cream"
+          >
+            <KebabIcon />
+          </button>
 
-        {/* Right: All Pages button (dropdown) */}
-        <div className="flex justify-end">
-          <details className="relative">
-            <summary className="list-none btn-outline cursor-pointer select-none">
-              All Pages
-            </summary>
-            <div className="absolute right-0 mt-2 w-64 max-h-[70vh] overflow-auto rounded-xl border bg-white shadow-lg p-2">
-              <div className="grid grid-cols-1 gap-1">
-                {pages.map((p) => (
+          {/* Panel */}
+          {open && (
+            <div className="absolute right-0 mt-2 w-64 rounded-2xl border bg-white shadow-xl p-2">
+              <div className="grid gap-1">
+                {nav.map(item => (
                   <Link
-                    key={p.href}
-                    href={p.href as any}
-                    className="rounded-lg px-3 py-2 text-sm hover:bg-brand-cream text-brand-navy"
+                    key={item.href}
+                    href={item.href as any}
+                    onClick={() => setOpen(false)}
+                    className="w-full rounded-xl px-3 py-2 text-sm hover:bg-amber-50 text-brand-navy"
                   >
-                    {p.label}
+                    {item.label}
                   </Link>
                 ))}
               </div>
             </div>
-          </details>
+          )}
         </div>
       </div>
     </header>

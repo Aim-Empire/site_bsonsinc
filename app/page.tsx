@@ -1,156 +1,174 @@
+import Button from "@/components/Button";
 import Link from "next/link";
-import CTA from "@/components/CTA";
-import Section from "@/components/Section";
-import FeatureCard from "@/components/FeatureCard";
 
-export default function Page() {
+export default function Page(){
   return (
     <>
-      {/* Hero intro (no big logo) */}
+      {/* Intro (no big logo, warm hero) */}
       <section className="hero border-b">
-        <div className="container-default py-12 md:py-16">
-          <h1 className="h1 font-fancy">Welcome to Bsons Inc.</h1>
+        <div className="container-default section">
+          <h1 className="h1">Welcome to <span className="text-brand-blue">Bsons Inc.</span></h1>
           <p className="lead mt-3">
-            Bourgeois &amp; Sons Incorporated — Community • Commerce • Generational Wealth.
-            We connect families and small businesses across the US, Canada, UK, and Australia
-            with practical programs: community support, loans, investments, and autos.
+            Bourgeois & Sons Incorporated — community uplift, practical programs, and pathways to
+            generational wealth across the US, Canada, UK, and Australia.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link className="btn" href="/apply">Start Application</Link>
-            <Link className="btn-outline" href="/programs">Explore Programs</Link>
-            <Link className="btn-outline" href="/donation">Donate</Link>
+            <Button href="/programs" variant="primary">Explore Programs</Button>
+            <Button href="/apply" variant="outline">Quick Apply</Button>
+            <Button href="/testimonials" variant="soft">Testimonials</Button>
           </div>
         </div>
       </section>
 
-      {/* Programs at a glance */}
-      <Section title="Programs">
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="card">
-            <h3 className="font-display text-xl text-brand-navy">Community Support</h3>
-            <p className="mt-2 text-sm text-neutral-700">
-              Targeted help for vulnerable families, seniors, and disabled citizens.
-            </p>
-            <Link className="btn mt-4" href="/programs/community-support">Learn More</Link>
-          </div>
-
-          <div className="card">
-            <h3 className="font-display text-xl text-brand-navy">Loans</h3>
-            <p className="mt-2 text-sm text-neutral-700">
-              Personal & small-business financing via partner banks and credit unions.
-            </p>
-            <Link className="btn mt-4" href="/programs/loan">Learn More</Link>
-          </div>
-
-          <div className="card">
-            <h3 className="font-display text-xl text-brand-navy">Small Business Loan</h3>
-            <p className="mt-2 text-sm text-neutral-700">
-              Working capital and growth funding with basic financials and underwriting.
-            </p>
-            <Link className="btn mt-4" href="/programs/small-business-loan">Learn More</Link>
-          </div>
-
-          <div className="card">
-            <h3 className="font-display text-xl text-brand-navy">Investment Programs</h3>
-            <p className="mt-2 text-sm text-neutral-700">
-              Save while you invest. Learn-first guidance, risk controls, and goal-based plans.
-              We also cover modern assets like crypto—legitimate but often abused by scammers—
-              with clear education on risks and responsible participation.
-            </p>
-            <Link className="btn mt-4" href="/programs/investment">Learn More</Link>
-          </div>
-
-          <div className="card">
-            <h3 className="font-display text-xl text-brand-navy">Autos (Buy • Sell • Rent)</h3>
-            <p className="mt-2 text-sm text-neutral-700">
-              Founder-led focus on trucks: purchase, sale, or weekly rent-to-own. Referral bonuses available.
-            </p>
-            <Link className="btn mt-4" href="/programs/autos">Learn More</Link>
-          </div>
-
-          <div className="card">
-            <h3 className="font-display text-xl text-brand-navy">Donation</h3>
-            <p className="mt-2 text-sm text-neutral-700">
-              Community work is sustained by your donations, Founder’s Metrolinx pension, and
-              the Bourgeois Family Generational Account (decades old) for larger needs.
-            </p>
-            <Link className="btn mt-4" href="/donation">Give Support</Link>
+      {/* Programs overview (neutral white, cards) */}
+      <section className="bg-white">
+        <div className="container-default section">
+          <h2 className="h2">Programs</h2>
+          <div className="grid-cards mt-6">
+            <div className="card">
+              <h3 className="font-display text-xl text-brand-navy">Community Support</h3>
+              <p className="mt-2 text-sm text-neutral-700">Targeted support for seniors, families, and disabled citizens.</p>
+              <Button href="/programs/community-support" className="mt-4">Learn more</Button>
+            </div>
+            <div className="card">
+              <h3 className="font-display text-xl text-brand-navy">Loans</h3>
+              <p className="mt-2 text-sm text-neutral-700">Personal & small business loans via banking partners.</p>
+              <Button href="/programs/loan" className="mt-4">Learn more</Button>
+            </div>
+            <div className="card">
+              <h3 className="font-display text-xl text-brand-navy">Small Business Loan</h3>
+              <p className="mt-2 text-sm text-neutral-700">Working capital and growth financing support.</p>
+              <Button href="/programs/small-business-loan" className="mt-4">Learn more</Button>
+            </div>
+            <div className="card">
+              <h3 className="font-display text-xl text-brand-navy">Investment</h3>
+              <p className="mt-2 text-sm text-neutral-700">
+                Save funds by investing and earn more while saving — learn types, benefits, and risks,
+                including crypto (legitimate but often abused by scammers).
+              </p>
+              <Button href="/programs/investment" className="mt-4">Learn more</Button>
+            </div>
+            <div className="card">
+              <h3 className="font-display text-xl text-brand-navy">Autos</h3>
+              <p className="mt-2 text-sm text-neutral-700">Buying, selling & weekly truck rentals. Referral bonuses available.</p>
+              <Button href="/programs/autos" className="mt-4">Learn more</Button>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Autos spotlight */}
-      <Section title="Autos — Trucks Focus">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="card">
-            <h4 className="font-semibold text-brand-navy">Buy • Sell • Weekly Rentals</h4>
-            <p className="mt-2 text-sm text-neutral-700">
-              Reliable trucks for work and mobility. Weekly payments for rentals, with flexible options.
-              Referral program rewards clients who bring in successful customers.
-            </p>
-            <Link className="btn mt-4" href="/programs/autos">Check Vehicle Options</Link>
-          </div>
-          <div className="card">
-            <h4 className="font-semibold text-brand-navy">Fast-track Eligibility</h4>
-            <p className="mt-2 text-sm text-neutral-700">
-              Tell us your country (US/CA/UK/AU) and purpose, and we’ll match you quickly.
-            </p>
-            <Link className="btn mt-4" href="/apply?program=autos">Start Autos Application</Link>
-          </div>
-        </div>
-      </Section>
-
-      {/* Founder note */}
-      <Section title="Founder’s Note">
-        <div className="card">
-          <p className="text-sm text-neutral-700">
-            The Bourgeois family has quietly supported community needs for years. After retiring from{" "}
-            <a className="text-brand-blue underline" href="https://www.metrolinx.com" target="_blank">
-              Metrolinx
-            </a>
-            , the Founder decided to bring this work online through Bsons Inc. Our motivation was also shaped by{" "}
-            <a className="text-brand-blue underline" href="https://www.metrolinx.com/en/community" target="_blank">
-              Metrolinx Community Support
-            </a>
-            . Today, funding comes from donations, the Founder’s Metrolinx pension, and when necessary,
-            the Bourgeois Family Generational Account to handle larger community needs. Alongside this mission,
-            the Founder now runs our Autos program as an active business line.
+      {/* Donation (soft amber/cream) */}
+      <section className="bg-amber-50 border-y">
+        <div className="container-default section">
+          <h2 className="h2">Donation</h2>
+          <p className="mt-2 text-neutral-700">
+            Your contributions help expand community programs. We also draw on the Founder’s Metrolinx pension
+            and the long-standing Bourgeois Family Generational account for larger needs.
           </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <Link className="btn" href="/donation">Donate</Link>
-            <Link className="btn-outline" href="/programs/autos">Explore Autos</Link>
-            <Link className="btn-outline" href="/programs/investment">Investment Overview</Link>
+          <div className="mt-4"><Button href="/donation" variant="primary">Donate</Button></div>
+        </div>
+      </section>
+
+      {/* Autos focus (gradient & bold) */}
+      <section className="bg-gradient-to-b from-emerald-50 to-sky-50">
+        <div className="container-default section">
+          <h2 className="h2">Autos — Founder’s Current Focus</h2>
+          <p className="mt-2 text-neutral-700">
+            We buy, sell, and rent trucks with flexible weekly payments. Earn bonuses by referring friends and
+            family — building opportunity through mobility.
+          </p>
+          <div className="mt-4 flex gap-3">
+            <Button href="/programs/autos" variant="soft">Explore Autos</Button>
+            <Button href="/apply?program=autos" variant="outline">Apply</Button>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Contact quick form */}
-      <Section title="Contact Us">
-        <div className="grid md:grid-cols-2 gap-6">
-          <form className="card">
-            <label className="text-sm">Full Name</label>
-            <input className="mt-1 border rounded-lg p-2 w-full" placeholder="Your name" />
-            <label className="text-sm mt-4">Email</label>
-            <input className="mt-1 border rounded-lg p-2 w-full" placeholder="you@example.com" />
-            <label className="text-sm mt-4">Message</label>
-            <textarea className="mt-1 border rounded-lg p-2 w-full min-h-[120px]" placeholder="How can we help?" />
-            <button className="mt-4 btn">Send</button>
+      {/* Founder note (serif and link to Metrolinx) */}
+      <section className="bg-white">
+        <div className="container-default section">
+          <h2 className="h2">Founder’s Note</h2>
+          <p className="mt-2 font-serif text-neutral-800">
+            The Bourgeois Family has supported our community for decades, mostly offline. After retiring from
+            <a className="text-brand-blue underline ml-1" href="https://www.metrolinx.com" target="_blank">Metrolinx</a>,
+            the plan is to grow our impact online. Inspiration also came from the Metrolinx Community Support program.
+            Today, we continue via donations, the Founder’s Metrolinx pension, and our Family Generational account when
+            needs are significant — while expanding our Autos business and Investment education.
+          </p>
+        </div>
+      </section>
+
+      {/* Investment highlight (cool tone) */}
+      <section className="bg-sky-50">
+        <div className="container-default section">
+          <h2 className="h2">Investment Program</h2>
+          <ul className="mt-3 list-disc pl-6 text-neutral-700">
+            <li>Save funds by investing and earn more while saving.</li>
+            <li>Understand types (stocks, bonds, funds, crypto, and more) and benefits.</li>
+            <li>Crypto is legitimate but high-risk and often abused by scammers — learn safe practices.</li>
+          </ul>
+          <div className="mt-4 flex gap-3">
+            <Button href="/programs/investment" variant="soft">Learn More</Button>
+            <Button href="/apply?program=investment" variant="outline">Get Started</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact (distinct background) */}
+      <section className="bg-gradient-to-b from-white to-amber-50">
+        <div className="container-default section">
+          <h2 className="h2">Contact Us</h2>
+          <form className="card mt-6 grid gap-4">
+            <div>
+              <label className="text-sm">Full Name</label>
+              <input className="mt-1 border rounded-lg p-2 w-full" placeholder="Your name" />
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm">Email</label>
+                <input className="mt-1 border rounded-lg p-2 w-full" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label className="text-sm">Topic</label>
+                <select className="mt-1 border rounded-lg p-2 w-full">
+                  <option>General</option>
+                  <option>Programs</option>
+                  <option>Autos</option>
+                  <option>Investment</option>
+                  <option>Careers</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label className="text-sm">Message</label>
+              <textarea className="mt-1 border rounded-lg p-2 w-full min-h-[120px]" />
+            </div>
+            <button className="btn self-start">Send</button>
           </form>
-          <div className="card">
-            <h4 className="font-semibold text-brand-navy">Quick Links</h4>
-            <ul className="mt-2 text-sm">
-              <li><Link className="text-brand-blue underline" href="/apply">Apply</Link></li>
-              <li><Link className="text-brand-blue underline" href="/programs">Browse Programs</Link></li>
-              <li><Link className="text-brand-blue underline" href="/donation">Make a Donation</Link></li>
-            </ul>
-            <p className="mt-4 text-xs text-neutral-600">
-              We respond within 1–2 business days.
-            </p>
-          </div>
         </div>
-      </Section>
+      </section>
 
-      <CTA title="Ready to begin?" primaryHref="/apply" secondaryHref="/contact" />
+      {/* Testimonials teaser */}
+      <section className="bg-white">
+        <div className="container-default section">
+          <h2 className="h2">What People Say</h2>
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            <figure className="card">
+              <blockquote className="text-sm text-neutral-700">“Clear guidance and quick support. The team truly cares.”</blockquote>
+              <figcaption className="mt-3 text-xs text-neutral-500">— Community Member, Toronto</figcaption>
+            </figure>
+            <figure className="card">
+              <blockquote className="text-sm text-neutral-700">“Their small business help got us through a rough patch.”</blockquote>
+              <figcaption className="mt-3 text-xs text-neutral-500">— Shop Owner, Atlanta</figcaption>
+            </figure>
+            <figure className="card">
+              <blockquote className="text-sm text-neutral-700">“Weekly truck rental made my delivery side-gig possible.”</blockquote>
+              <figcaption className="mt-3 text-xs text-neutral-500">— Driver, London</figcaption>
+            </figure>
+          </div>
+          <div className="mt-6"><Button href="/testimonials" variant="ghost">Read more testimonials →</Button></div>
+        </div>
+      </section>
     </>
   );
 }
