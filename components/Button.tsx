@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { clsx } from "clsx";
+import clsx from "clsx";
 
 export default function Button({ href, children, variant = "primary", className = "" }:{
   href: string; children: React.ReactNode; variant?: "primary"|"outline"; className?: string;
