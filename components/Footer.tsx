@@ -1,14 +1,17 @@
 export default function Footer(){
   return (
     <footer className="border-t">
-      <div className="container-default py-10 grid md:grid-cols-3 gap-8">
-        <div>
+      <div className="container-default py-10 grid md:grid-cols-4 gap-8">
+        <div className="md:col-span-2">
           <div className="flex items-center gap-2">
             <img src="/logo.png" className="w-8 h-8 rounded-full border" alt="logo"/>
-            <span className="font-display text-lg text-brand-navy">Bsons Inc.</span>
+            <span className="font-fancy text-lg text-brand-navy">Bsons Inc.</span>
           </div>
-          <p className="mt-3 text-sm text-neutral-600">Community • Commerce • Generational Wealth</p>
+          <p className="mt-3 text-sm text-neutral-600">
+            Community • Commerce • Generational Wealth
+          </p>
         </div>
+
         <div>
           <h4 className="font-semibold text-brand-navy">Company Email</h4>
           <ul className="mt-2 text-sm">
@@ -17,9 +20,13 @@ export default function Footer(){
             <li><a className="text-brand-blue" href="mailto:career@bsonsinc.com">career@bsonsinc.com</a></li>
           </ul>
         </div>
+
         <div>
-          <h4 className="font-semibold text-brand-navy">Regions</h4>
-          <p className="mt-2 text-sm">United States • Canada • United Kingdom • Australia</p>
+          <h4 className="font-semibold text-brand-navy">Reach Us</h4>
+          <p className="mt-2 text-sm">Regions: United States • Canada • United Kingdom • Australia</p>
+          <p className="mt-2 text-sm">
+            WhatsApp: <a className="text-brand-blue" href="https://wa.me/19056971979">+1 (905) 697-1979</a>
+          </p>
         </div>
       </div>
       <div className="bg-[var(--brand-cream)] border-t">
