@@ -1,15 +1,13 @@
-import FeatureCard from "@/components/FeatureCard";
-
-export default function Careers(){
+export const metadata = { title: "Careers | Bsons Inc." };
+export default function Page(){
   return (
-    <section className="container-default py-12">
-      <h1 className="h1">Careers</h1>
-      <p className="lead mt-2">We’re hiring mission-driven people. Apply below.</p>
-      <div className="grid md:grid-cols-3 gap-6 mt-6">
-        <FeatureCard title="Funds Disbursement Officer (FDO)" href="/careers/fdo" />
-        <FeatureCard title="Program Intake Specialist" href="/contact">Apply via Contact</FeatureCard>
-        <FeatureCard title="Community Outreach Coordinator" href="/contact">Apply via Contact</FeatureCard>
-      </div>
-    </section>
+    <main className="min-h-screen bg-[var(--page-careers,#F5F7FF)]">
+      <section className="container-default py-10">
+        <h1 className="font-display text-4xl text-brand-navy">Careers</h1>
+        <p className="mt-3 text-neutral-700">Join as a Field Development Officer (FDO) or in operations, autos, or community support.</p>
+        <img src="/careers.jpg?v=3" alt="Team" className="mt-6 rounded-2xl border w-full max-h-[380px] object-cover"/>
+        <a className="btn mt-6 inline-flex" href="mailto:careers@bsonsinc.com">Email Your CV</a>
+      </section>
+    </main>
   );
 }

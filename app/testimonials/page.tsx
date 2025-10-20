@@ -1,20 +1,23 @@
-export default function Testimonials(){
-  const items = [
-    { q: "Practical help that respects your time.", a: "Small Business Owner — New York" },
-    { q: "The Autos program gave me earning flexibility.", a: "Independent Driver — Manchester" },
-    { q: "Kind people, clear answers, smooth process.", a: "Community Member — Vancouver" },
-  ];
+export const metadata = { title: "Testimonials | Bsons Inc." };
+const items = [
+  { q: "The weekly truck plan let me start my delivery side-business.", by: "M. A., Toronto" },
+  { q: "Clear steps and friendly support. The process just made sense.", by: "R. K., Houston" },
+  { q: "Their investment class finally demystified index funds for me.", by: "J. B., London" },
+];
+export default function Page(){
   return (
-    <section className="container-default py-12 md:py-16">
-      <h1 className="h1">Testimonials</h1>
-      <div className="grid md:grid-cols-2 gap-6 mt-6">
-        {items.map((t, i) => (
-          <figure key={i} className="card">
-            <blockquote className="text-neutral-800">{t.q}</blockquote>
-            <figcaption className="mt-2 text-sm text-neutral-500">— {t.a}</figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
+    <main className="min-h-screen bg-[var(--page-testimonials,#F8FFF9)]">
+      <section className="container-default py-10">
+        <h1 className="font-display text-4xl text-brand-navy">Testimonials</h1>
+        <div className="mt-6 grid md:grid-cols-3 gap-6">
+          {items.map((t,i)=>(
+            <figure key={i} className="card">
+              <blockquote className="text-neutral-700">“{t.q}”</blockquote>
+              <figcaption className="mt-3 text-sm text-neutral-500">— {t.by}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
