@@ -1,42 +1,36 @@
 export default function Footer(){
   return (
-    <footer className="border-t">
-      <div className="container-default py-10 grid md:grid-cols-4 gap-8">
-        <div className="md:col-span-2">
+    <footer className="bg-brand-navy text-white mt-8">
+      <div className="container-default py-10 grid md:grid-cols-3 gap-8">
+        <div>
           <div className="flex items-center gap-2">
-            <img src="/logo.png" className="w-8 h-8 rounded-full border" alt="logo"/>
-            <span className="font-fancy text-lg text-brand-navy">Bsons Inc.</span>
+            <img src="/logo.png" className="w-9 h-9 rounded-full border border-white/20" alt="logo"/>
+            <span className="font-display text-lg">Bsons Inc.</span>
           </div>
-          <p className="mt-3 text-sm text-neutral-600">
-            Community • Commerce • Generational Wealth
-          </p>
+          <p className="mt-3 text-sm text-white/80">Community • Commerce • Generational Wealth</p>
         </div>
 
         <div>
-          <h4 className="font-semibold text-brand-navy">Company Email</h4>
+          <h4 className="font-semibold">Contact</h4>
           <ul className="mt-2 text-sm">
-            <li><a className="text-brand-blue" href="mailto:support@bsonsinc.com">support@bsonsinc.com</a></li>
-            <li><a className="text-brand-blue" href="mailto:admin@bsonsinc.com">admin@bsonsinc.com</a></li>
-            <li><a className="text-brand-blue" href="mailto:career@bsonsinc.com">career@bsonsinc.com</a></li>
+            <li><a className="underline" href="mailto:support@bsonsinc.com">support@bsonsinc.com</a></li>
+            <li><a className="underline" href="mailto:admin@bsonsinc.com">admin@bsonsinc.com</a></li>
+            <li><a className="underline" href="mailto:career@bsonsinc.com">career@bsonsinc.com</a></li>
+            <li className="mt-2">WhatsApp Support: +1 (###) ###-####</li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold text-brand-navy">Reach Us</h4>
-          <p className="mt-2 text-sm">Regions: United States • Canada • United Kingdom • Australia</p>
-          <p className="mt-2 text-sm">
-            WhatsApp: <a className="text-brand-blue" href="https://wa.me/19056971979">+1 (905) 697-1979</a>
-          </p>
+          <h4 className="font-semibold">Regions</h4>
+          <p className="mt-2 text-sm">US • Canada • UK • Australia</p>
         </div>
       </div>
-      <div className="bg-[var(--brand-cream)] border-t">
-        <div className="container-default py-6 text-xs text-neutral-600">
-          <p>
-            Disclaimer: Information on this site is for general purposes only and does not constitute
-            financial, legal, or investment advice. Eligibility, terms, and availability are subject to
-            verification and partner approval. Not all applicants will qualify.
-          </p>
-          <p className="mt-2">© {new Date().getFullYear()} Bsons Inc. All rights reserved.</p>
+
+      <div className="bg-[#0B2649]">
+        <div className="container-default py-5 text-xs text-white/80">
+          Disclaimer: Information on this site is for general purposes only and does not constitute
+          financial, legal, or investment advice. Eligibility and availability are subject to verification and partner approval.
+          <div className="mt-2">© {new Date().getFullYear()} Bsons Inc. All rights reserved.</div>
         </div>
       </div>
     </footer>
