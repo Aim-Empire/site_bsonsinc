@@ -1,0 +1,7 @@
+{
+  "roles": [
+    { "code": "FDO", "name": "Funds Disbursement Officer" },
+    { "code": "OPS", "name": "Operations" },
+    { "code": "AUTO", "name": "Autos Field" }
+  ]
+}

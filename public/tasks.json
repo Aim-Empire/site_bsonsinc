@@ -1,0 +1,34 @@
+{
+  "updated": "2025-10-20T12:00:00Z",
+  "currency": "USD",
+  "tasks": [
+    {
+      "id": "FDO-001",
+      "title": "Call 5 pre-approved applicants",
+      "program": "Community Support",
+      "requirements": ["Use script v2", "Record outcome in sheet"],
+      "pay": 25,
+      "units": "per call",
+      "status": "available"
+    },
+    {
+      "id": "AUTO-014",
+      "title": "Verify truck documents",
+      "program": "Autos",
+      "requirements": ["VIN check", "Insurance screenshot"],
+      "pay": 40,
+      "units": "per verification",
+      "status": "available"
+    }
+  ],
+  "completed": [
+    {
+      "id": "INV-003",
+      "title": "Tutor session: ETF basics",
+      "program": "Investment",
+      "pay": 60,
+      "units": "per session",
+      "when": "2025-10-19"
+    }
+  ]
+}
