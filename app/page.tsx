@@ -32,6 +32,13 @@ export default function Home() {
           </p>
           <p className="mt-4 text-lg text-neutral-700 max-w-3xl">
             We support families and small businesses through community programs, simple investing education, and the founder’s Autos business (buy, sell, rent with flexible weekly plans).
+            <span className="block mt-2 text-base text-neutral-700">
+              We prioritise clear steps, transparent terms, and real outcomes — guiding you from first enquiry to confident action.
+            </span>
+          </p>
+          {/* italic tagline AFTER the intro as requested */}
+          <p className="mt-2 italic text-neutral-700">
+            Community • Commerce • Generational Wealth
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/programs" className="rounded-xl px-4 py-2 text-sm font-medium bg-[#F2C044] text-[#0A2C57] hover:brightness-95">Explore Programs</Link>
@@ -60,7 +67,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURE GRID – adds Community Support & Careers */}
+      {/* FEATURE GRID – include Community Support & Careers too */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card title="Community Support" desc="Targeted help for families, seniors, and people with disabilities." href="/programs/community-support" img="/community.jpg" />
@@ -72,7 +79,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* QUICK LINKS (as buttons) */}
+      {/* QUICK LINKS (unchanged color band) */}
       <section className="bg-[#0F3D7A] text-white">
         <div className="mx-auto max-w-6xl px-4 py-8">
           <h2 className="font-serif text-2xl">Quick Links</h2>
@@ -97,7 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS (before footer) */}
+      {/* TESTIMONIALS BEFORE FOOTER */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <h2 className="font-serif text-3xl text-[#0A2C57]">Testimonials</h2>
         <div className="mt-6 grid md:grid-cols-3 gap-6">
